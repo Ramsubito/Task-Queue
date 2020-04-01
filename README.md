@@ -20,7 +20,15 @@ We will select the tasks we want to do and enqueue them. Once the first one call
 Queue are a type of container adaptors which operate in a first in first out (FIFO) type of arrangement. Elements are inserted at the back (end) and are deleted from the front.A task queue must be created firts.
 ### Push queues
 push() function is used to insert an element at the back of the queue. The element is added to the queue container and the size of the queue is increased by 1.
+![Push](https://github.com/Ramsubito/Task-Queue/blob/master/Wiki%20Images/Captura.PNG)
 
 ### Pull queues
 pull() function is used to remove an element from the front of the queue(oldest element in the queue). The element is removed to the queue container and the size of the queue is decreased by 1.
+![Pull](https://github.com/Ramsubito/Task-Queue/blob/master/Wiki%20Images/Captura2.PNG)
+
+# Exercices
+There is a handout with an entity requesting multiple task to do.
+### TODO 1
+There is a queue of tasks already created, add a task to the queue.
+## TODO 2
 
