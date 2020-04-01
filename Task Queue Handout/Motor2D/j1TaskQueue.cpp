@@ -22,7 +22,14 @@ bool Left::Action()
 bool Right::Action()
 {
 	bool ret = false;
-	//TODO 4: Implement the code for the movility of the Right direction. Hint: You have already implemented the MoveLeft:Action method above
+	if (entity->pos.x >= Final_Position.x) {
+		entity->pos.x = Final_Position.x;
+		ret = true;
+	}
+	else {
+		entity->pos.x += entity->speed.x;
+	}
+
 	
 	
 	return ret;
@@ -31,7 +38,13 @@ bool Right::Action()
 bool Up::Action()
 {
 	bool ret = false;
-	//TODO 4: Implement the code for the movility of the Up direction. Hint: You have already implemented the MoveLeft:Action method above
+	if (entity->pos.y <= Final_Position.y) {
+		entity->pos.y = Final_Position.y;
+		ret = true;
+	}
+	else {
+		entity->pos.y -= entity->speed.y;
+	}
 	
 	
 	return ret;
@@ -40,7 +53,13 @@ bool Up::Action()
 bool Down::Action()
 {
 	bool ret = false;
-	//TODO 4: Implement the code for the movility of the Down direction. Hint: You have already implemented the MoveLeft:Action method above
+	if (entity->pos.y >= Final_Position.y) {
+		entity->pos.y = Final_Position.y;
+		ret = true;
+	}
+	else {
+		entity->pos.y += entity->speed.y;
+	}
 	
 	
 	return ret;

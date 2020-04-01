@@ -38,27 +38,9 @@ bool j1Player::PreUpdate()
 
 void j1Player::Move(float dt)
 {
-	//TODO 6: Add a new movement task to the queue for each key pressed for the four directions.
-	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN)
-	{
-		
-	}
-	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_DOWN)
-	{
-		
-		
+	//TODO 6: Add a new movement task to the queue for each key pressed for the four directions(W, A, S, D or Arrows).
+	
 
-	}
-	if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_DOWN)
-	{
-		
-		
-	}
-	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_DOWN)
-	{
-		
-		
-	}
 
 }
 
