@@ -6,3 +6,9 @@ We want to call the function we encapsulated in DoTask() method, so we can acces
 
 ![Task class](https://github.com/Ramsubito/Task-Queue/blob/master/Wiki%20Images/TaskClass.PNG)
 
+## Task queue in videogames
+Imagine you want a task to be done after a certain condition, that's when queued tasks come in.
+
+Your player is requesting a task. And you make him do a task, and then another, but if he has not finished the first task the next one will be queued until the condition is done. Imagine you ask the player to clean up the floor like in this example, and then yo make him move to another spot, the task of moving will be queued, and will execute once he has cleaned the prevoious task.
+![Task request](https://github.com/Ramsubito/Task-Queue/blob/master/Wiki%20Images/Request%20next%20task.PNG)
+![Task in process](https://github.com/Ramsubito/Task-Queue/blob/master/Wiki%20Images/task%20request1.PNG)
