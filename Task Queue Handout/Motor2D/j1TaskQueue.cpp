@@ -73,7 +73,7 @@ bool j1TaskQueue::Update(float dt)
 		
 		if (auxiliar_task == nullptr && TaskQueue.size() != 0)
 		{
-			//TODO 5: Assign the first element of the queue to the auxiliar_task, call InitTask function for auxiliar_task and make a pop of the queue.
+			//TODO 4: Assign the first element of the queue to the auxiliar_task, call InitTask function for auxiliar_task and make a pop of the queue.
 			
 		}
 	}
