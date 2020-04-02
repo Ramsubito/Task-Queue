@@ -24,6 +24,7 @@ class Entity {
 public:
 
 	Entity(int x, int y, ENTITY_TYPES type) {}
+	
 	virtual void Walk(float dt) {};
 
 public:

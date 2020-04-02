@@ -54,9 +54,10 @@ bool j1Entity::Awake()
 bool j1Entity::Start()
 {
 	//Load sprite
-	//sprite = App->tex->Load("textures/rsz_test.png");
-	goku_sprite = App->tex->Load("textures/GokuSpritesheet.png");
-	Current_Animation = &kick;
+	sprite = App->tex->Load("textures/rsz_test.png");
+	//goku_sprite = App->tex->Load("textures/GokuSpritesheet.png");
+
+	//Current_Animation = &kick;
 	return true;
 }
 
@@ -76,7 +77,7 @@ bool j1Entity::Update(float dt)
 		{ 
 			
 			//App->render->Blit(goku_sprite, (*iterator)->pos.x, (*iterator)->pos.y);
-			App->render->Blit(goku_sprite, (*iterator)->pos.x, (*iterator)->pos.y, &Current_Animation->GetCurrentFrame(), 1.0f, NULL, NULL, NULL);
+			App->render->Blit(sprite, (*iterator)->pos.x, (*iterator)->pos.y);
 		}
 
 		(*iterator)->Walk(dt);

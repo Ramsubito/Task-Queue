@@ -15,8 +15,9 @@ bool Punch::Attack()
 	else {
 		entity->pos.x -= entity->speed.x;
 	}
-
+	
 	return ret;
+	
 }
 
 bool Kick::Attack()
@@ -30,7 +31,7 @@ bool Kick::Attack()
 	else {
 		entity->pos.x += entity->speed.x;
 	}
-
+	
 
 	
 	return ret;
@@ -53,6 +54,7 @@ bool Kame::Attack()
 
 bool Charge_Ki::Attack()
 {
+	
 	bool ret = false;
 	if (entity->pos.y >= Final_Position.y) {
 		entity->pos.y = Final_Position.y;
