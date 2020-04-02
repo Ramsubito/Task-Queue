@@ -1,3 +1,9 @@
+# About Me
+I'm Marc Ramos, a second year student of the backelor's degree in VideoGames by UPC at CITM. This content is generated for the second year 's subject Project 2, under supervision of lecturer.
+### Portfolio
+https://github.com/Ramsubito
+https://www.artstation.com/ramsubo
+
 # Task-Queue
 Task queue is a mechanism to distribute a sequence of tasks among parallel threads of execution. The main problem is broken down into tasks and the tasks are enqueued onto the queue. So, parallel threads of execution pull tasks from the queue and execute computations on the tasks.
  
