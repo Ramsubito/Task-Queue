@@ -38,6 +38,8 @@ bool j1Entity::Update(float dt)
 
 	for (iterator; iterator != entities.end(); iterator++)
 	{
+		
+		
 		if ((*iterator)->type == PLAYER)
 		{
 
@@ -72,9 +74,8 @@ Entity* j1Entity::AddEntity(int pos_x, int pos_y, entity_type type)
 	}
 	ent->type = type;
 	ent->pos = { pos_x, pos_y };
-	ent->speed.x = 2;
-	ent->speed.y = 2;
-	ent->rect = { pos_x, pos_y, 29, 31 };
+	ent->speed.x = 6;
+	ent->speed.y = 6;
 
 	entities.push_back(ent);
 
