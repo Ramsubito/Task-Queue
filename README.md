@@ -45,3 +45,16 @@ On this to do we will start executing the tasks. When we press a key we will nee
 ## TODO 5
 Finally we will need the player to move to check if it's working. Movement methods are already done you'll just need to call them when pressing the key you choose.
 
+# Interesting extra information
+### More about task Queues concept
+https://www.youtube.com/watch?v=22n06z0rq4c
+
+### Videogames examples
+https://gameprogrammingpatterns.com/event-queue.html
+https://www.youtube.com/watch?v=TBWukQAhrBk
+https://www.youtube.com/watch?v=dmebSeDIMts
+
+# Commands
+Arrow to move camera.
+W,S,D,A to choose the moves the player will move(Only on solution)
+Space to execute tasks(Only on solution)
