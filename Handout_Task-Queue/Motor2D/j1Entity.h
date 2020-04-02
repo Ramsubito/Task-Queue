@@ -10,6 +10,8 @@
 #include <list>
 #include <queue>
 
+#define MAX_ENEMIES 5
+
 
 class SDL_Texture;
 
@@ -17,15 +19,14 @@ enum ENTITY_TYPES
 {
 	NO_TYPE,
 	PLAYER,
-	
+
 };
 
 class Entity {
 public:
 
 	Entity(int x, int y, ENTITY_TYPES type) {}
-	
-	virtual void Walk(float dt) {};
+	virtual void Move(float dt) {};
 
 public:
 	iPoint pos;
@@ -51,19 +52,11 @@ public:
 	bool PreUpdate();
 	bool Update(float dt);
 	bool CleanUp();
-	
+
 
 	Entity* AddEntity(int x, int y, ENTITY_TYPES type);
-	
-	SDL_Texture* sprite;
-	SDL_Texture* goku_sprite;
 
-	Animation* Current_Animation;
-	Animation idle;
-	Animation punch;
-	Animation kame;
-	Animation charge_ki;
-	Animation kick;
+	SDL_Texture* sprite;
 };
 
 

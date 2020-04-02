@@ -7,13 +7,9 @@
 #include "j1Entity.h"
 #include "j1TaskQueue.h"
 
-#include"SDL_image/include/SDL_image.h"
-
-
-
 j1Player::j1Player(int x, int y, ENTITY_TYPES type) : Entity(x, y, type)
 {
-	
+
 }
 
 j1Player::~j1Player()
@@ -22,12 +18,14 @@ j1Player::~j1Player()
 
 bool j1Player::Awake()
 {
-	
+
 	return true;
 }
 
 bool j1Player::Start()
 {
+
+
 
 
 	return true;
@@ -38,25 +36,28 @@ bool j1Player::PreUpdate()
 	return true;
 }
 
-void j1Player::Action(float dt)
+void j1Player::Move(float dt)
 {
-	//TODO 5: Add a new attack/action task to the queue for a key pressed.(kick, punch, charge_ki, kame)
-	//Action methods already added.As Up, Down, Left, Right. Check j1TaskQueue.h.
-	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN)
-	{
-		App->task->EnqueueTask(new Punch(this));
-	}
+
 	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_DOWN)
 	{
-		App->task->EnqueueTask(new Kick(this));
-	}
-	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_DOWN)
-	{
-		App->task->EnqueueTask(new Kame(this));
+		App->task->AddTasktoQueue(new MoveLeft(this));
 	}
 	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN)
 	{
-		App->task->EnqueueTask(new Charge_Ki(this));
+
+		App->task->AddTasktoQueue(new MoveRight(this));
+
+	}
+	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN)
+	{
+
+		App->task->AddTasktoQueue(new MoveUp(this));
+	}
+	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_DOWN)
+	{
+
+		App->task->AddTasktoQueue(new MoveDown(this));
 	}
 
 }
@@ -64,10 +65,11 @@ void j1Player::Action(float dt)
 
 bool j1Player::CleanUp()
 {
-	
-	
+
+
 	return true;
 }
+
 
 
 

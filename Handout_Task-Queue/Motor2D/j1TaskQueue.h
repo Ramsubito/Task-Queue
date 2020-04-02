@@ -15,10 +15,10 @@ public:
 	~Task() {};
 	Entity* entity;
 	virtual bool Action() { return true; };
-	virtual void StartTask() {};
+	virtual void InitTask() {};
 };
 
-class j1TaskQueue: public j1Module
+class j1TaskQueue : public j1Module
 {
 public:
 	j1TaskQueue() {};
@@ -28,62 +28,62 @@ public:
 	bool Update(float dt);
 	bool CleanUp();
 
-	bool EnqueueTask(Task* task);
-	bool DoTasks();
+	bool AddTasktoQueue(Task* task);
+	bool ExecuteTasks();
 
 private:
 
 	std::queue<Task*> TaskQueue;
-	
+
 public:
-	Task* Task_temp = nullptr;
-};
-
-//moving to diferent directions as different tasks.
-
-class Punch : public Task
-{
-public:
-	Punch(Entity* entity) : Task(entity) {};
-	~Punch() {};
-
-	bool Attack();
-	iPoint Final_Position;
-	void StartTask() { Final_Position.x = entity->pos.x - entity->rect.w; };
+	Task* auxiliar_task = nullptr;
 };
 
 
-class Kick : public Task
+
+class MoveLeft : public Task
 {
 public:
-	Kick(Entity* entity) : Task(entity) {};
-	~Kick() {};
+	MoveLeft(Entity* entity) : Task(entity) {};
+	~MoveLeft() {};
 
-	bool Attack();
-	iPoint Final_Position;
-	void StartTask() { Final_Position.x = entity->pos.x + entity->rect.w; };
+	bool Action();
+	iPoint finalpos;
+	void InitTask() { finalpos.x = entity->pos.x - entity->rect.w; };
 };
 
-class Kame : public Task
+
+class MoveRight : public Task
 {
 public:
-	Kame(Entity* entity) : Task(entity) {};
-	~Kame() {};
+	MoveRight(Entity* entity) : Task(entity) {};
+	~MoveRight() {};
 
-	bool Attack();
-	iPoint Final_Position;
-	void StartTask() { Final_Position.y = entity->pos.y - entity->rect.h; };
+	bool Action();
+	iPoint finalpos;
+	void InitTask() { finalpos.x = entity->pos.x + entity->rect.w; };
 };
 
-class Charge_Ki : public Task
+class MoveUp : public Task
 {
 public:
-	Charge_Ki(Entity* entity) : Task(entity) { };
-	~Charge_Ki() {};
+	MoveUp(Entity* entity) : Task(entity) {};
+	~MoveUp() {};
 
-	bool Attack();
-	iPoint Final_Position;
-	void StartTask() {Final_Position.y = entity->pos.y + entity->rect.h;};
+	bool Action();
+	iPoint finalpos;
+	void InitTask() { finalpos.y = entity->pos.y - entity->rect.h; };
+};
+
+class MoveDown : public Task
+{
+public:
+	MoveDown(Entity* entity) : Task(entity) { };
+	~MoveDown() {};
+
+	bool Action();
+	iPoint finalpos;
+	void InitTask() { finalpos.y = entity->pos.y + entity->rect.h; };
 };
 #endif // !_TASKMANAGER_H__
 

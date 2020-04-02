@@ -5,131 +5,114 @@
 
 
 
-bool Punch::Attack()
+bool MoveLeft::Action()
 {
 	bool ret = false;
-	if (entity->pos.x <= Final_Position.x) {
-		entity->pos.x = Final_Position.x;
+	if (entity->pos.x <= finalpos.x) {
+		entity->pos.x = finalpos.x;
 		ret = true;
 	}
 	else {
 		entity->pos.x -= entity->speed.x;
 	}
-	
+
 	return ret;
-	
 }
 
-bool Kick::Attack()
+bool MoveRight::Action()
 {
 	bool ret = false;
-	
-	if (entity->pos.x >= Final_Position.x) {
-		entity->pos.x = Final_Position.x;
+	if (entity->pos.x >= finalpos.x) {
+		entity->pos.x = finalpos.x;
 		ret = true;
 	}
 	else {
 		entity->pos.x += entity->speed.x;
 	}
-	
-
-	
 	return ret;
 }
 
-bool Kame::Attack()
+bool MoveUp::Action()
 {
 	bool ret = false;
-	if (entity->pos.y <= Final_Position.y) {
-		entity->pos.y = Final_Position.y;
+	if (entity->pos.y <= finalpos.y) {
+		entity->pos.y = finalpos.y;
 		ret = true;
 	}
 	else {
 		entity->pos.y -= entity->speed.y;
 	}
-	
-	
 	return ret;
 }
 
-bool Charge_Ki::Attack()
+bool MoveDown::Action()
 {
-	
 	bool ret = false;
-	if (entity->pos.y >= Final_Position.y) {
-		entity->pos.y = Final_Position.y;
+	if (entity->pos.y >= finalpos.y) {
+		entity->pos.y = finalpos.y;
 		ret = true;
 	}
 	else {
 		entity->pos.y += entity->speed.y;
 	}
-	
-	
 	return ret;
 }
 
 bool j1TaskQueue::Update(float dt)
 {
-	bool ret = false; 
+	bool ret = false;
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 	{
-		
-		if (Task_temp == nullptr && TaskQueue.size() != 0)
+
+		if (auxiliar_task == nullptr && TaskQueue.size() != 0)
 		{
-			//TODO 4: Assign the first element of the queue to the auxiliar_task, call InitTask function for auxiliar_task and make a pop of the queue.
-			if (Task_temp == nullptr && TaskQueue.size() != 0) 
-			{
-				Task_temp = TaskQueue.front();
-				Task_temp->StartTask();
-				TaskQueue.pop();
-			}
+			auxiliar_task = TaskQueue.front();
+			auxiliar_task->InitTask();
+			TaskQueue.pop();
 		}
 	}
 
-	ret = DoTasks();
+	ret = ExecuteTasks();
 
 	return ret;
 }
 
 bool j1TaskQueue::CleanUp()
 {
-	//TODO 3: Pop queue tasks
 	while (TaskQueue.size() != 0)
 	{
 		TaskQueue.pop();
+
 	}
-	
 	return true;
 }
 
-bool j1TaskQueue::EnqueueTask(Task* task)
+bool j1TaskQueue::AddTasktoQueue(Task* task)
 {
-	//TODO 1: Add a task to the Queue
+
 	TaskQueue.push(task);
-	
 
 	return true;
 }
 
-bool j1TaskQueue::DoTasks()
+bool j1TaskQueue::ExecuteTasks()
 {
-	
-	if (Task_temp != nullptr)
+	if (auxiliar_task != nullptr)
 	{
-		
-		if (Task_temp->Action())
+
+		if (auxiliar_task->Action())
 		{
 			if (TaskQueue.size() != 0)
 			{
-				//TODO 2: Assign the first element of the queue to the auxiliar_task, call InitTask function for auxiliar_task and make a pop of the queue.
-				Task_temp = TaskQueue.front();
-				Task_temp->StartTask();
+
+				auxiliar_task = TaskQueue.front();
+				auxiliar_task->InitTask();
 				TaskQueue.pop();
-				
-				
+
+
 			}
-			else 
-				Task_temp = nullptr;
+			else
+				auxiliar_task = nullptr;
 
 		}
 	}
