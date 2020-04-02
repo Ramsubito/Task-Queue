@@ -22,7 +22,7 @@ bool j1Entity::Awake()
 bool j1Entity::Start()
 {
 	//Load sprite
-	sprite = App->tex->Load("textures/johnny.png");
+	sprite = App->tex->Load("textures/test.png");
 	
 	return true;
 }
