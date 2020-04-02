@@ -66,6 +66,7 @@ bool j1TaskQueue::Update(float dt)
 
 		if (auxiliar_task == nullptr && TaskQueue.size() != 0)
 		{
+			//TODO 4: Assign the first element of the queue to the auxiliar_task, call InitTask function for auxiliar_task and make a pop of the queue.
 			auxiliar_task = TaskQueue.front();
 			auxiliar_task->InitTask();
 			TaskQueue.pop();
@@ -81,6 +82,7 @@ bool j1TaskQueue::CleanUp()
 {
 	while (TaskQueue.size() != 0)
 	{
+		//TODO 3: Pop queue tasks
 		TaskQueue.pop();
 
 	}
@@ -89,7 +91,7 @@ bool j1TaskQueue::CleanUp()
 
 bool j1TaskQueue::AddTasktoQueue(Task* task)
 {
-
+	//TODO 1 Add task to the queue
 	TaskQueue.push(task);
 
 	return true;
@@ -104,7 +106,7 @@ bool j1TaskQueue::ExecuteTasks()
 		{
 			if (TaskQueue.size() != 0)
 			{
-
+				//TODO 2: Assign the first element of the queue to the auxiliar_task, call InitTask function for auxiliar_task and make a pop of the queue.
 				auxiliar_task = TaskQueue.front();
 				auxiliar_task->InitTask();
 				TaskQueue.pop();
