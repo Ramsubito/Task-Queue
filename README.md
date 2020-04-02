@@ -56,5 +56,7 @@ https://www.youtube.com/watch?v=dmebSeDIMts
 
 # Commands
 Arrow to move camera.
+
 W,S,D,A to choose the moves the player will move(Only on solution)
+
 Space to execute tasks(Only on solution)
