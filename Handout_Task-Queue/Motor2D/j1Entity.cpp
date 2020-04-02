@@ -8,19 +8,36 @@ j1Entity::j1Entity() : j1Module()
 {
 	name.create("entity");
 	idle.PushBack({433, 470 , 39 , 86});
-	/*
+	
 
-	punch.PushBack({});
-	punch.speed = ;
+	punch.PushBack({355, 10 , 50 , 76});
+	punch.PushBack({ 412, 9 , 50 , 76 });
+	punch.PushBack({468 , 13 , 59 , 69});
+	punch.PushBack({533 , 9 , 71 , 74});
+	punch.speed = 0.15f;
+	
+	kick.PushBack({355, 10, 50, 76});
+	kick.PushBack({70 , 484, 37, 64});
+	kick.PushBack({612, 481, 78, 73});
+	kick.PushBack({702, 92, 39, 70});
+	kick.speed = 0.1;
+	
+	charge_ki.PushBack({3 , 355 , 63 , 101});
+	charge_ki.PushBack({69, 351, 57, 105});
+	charge_ki.PushBack({129, 353, 57, 100});
+	charge_ki.PushBack({ 3 , 355 , 63 , 101 });
+	charge_ki.PushBack({ 69, 351, 57, 105 });
+	charge_ki.PushBack({ 129, 353, 57, 100 });
+	charge_ki.speed = 0.3f;
 
-	kick.PushBack({});
-	kick.speed = ;
-
-	charge_ki.PushBack({});
-	charge_ki.speed = ;
-
-	kame.PushBack({});
-	kame.speed = ;*/
+	kame.PushBack({355, 10, 50, 76});
+	kame.PushBack({654, 279, 54, 68});
+	kame.PushBack({ 654, 279, 54, 68 });
+	kame.PushBack({ 654, 279, 54, 68 });
+	kame.PushBack({110, 479, 57, 74});
+	kame.PushBack({ 110, 479, 57, 74 });
+	kame.PushBack({ 110, 479, 57, 74 });
+	kame.speed = 0.1;
 
 }
 
@@ -39,7 +56,7 @@ bool j1Entity::Start()
 	//Load sprite
 	//sprite = App->tex->Load("textures/rsz_test.png");
 	goku_sprite = App->tex->Load("textures/GokuSpritesheet.png");
-	Current_Animation = &idle;
+	Current_Animation = &kick;
 	return true;
 }
 

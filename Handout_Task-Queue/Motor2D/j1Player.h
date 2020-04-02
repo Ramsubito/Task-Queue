@@ -20,11 +20,10 @@ public:
 
 	bool PreUpdate();
 
-	void Move(float dt);
+	void Action(float dt);
 
 	bool CleanUp();
 
-	
 };
 
 

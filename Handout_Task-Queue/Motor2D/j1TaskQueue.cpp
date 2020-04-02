@@ -5,7 +5,7 @@
 
 
 
-bool Left::Movement()
+bool Punch::Attack()
 {
 	bool ret = false;
 	if (entity->pos.x <= Final_Position.x) {
@@ -19,9 +19,10 @@ bool Left::Movement()
 	return ret;
 }
 
-bool Right::Movement()
+bool Kick::Attack()
 {
 	bool ret = false;
+	
 	if (entity->pos.x >= Final_Position.x) {
 		entity->pos.x = Final_Position.x;
 		ret = true;
@@ -35,7 +36,7 @@ bool Right::Movement()
 	return ret;
 }
 
-bool Up::Movement()
+bool Kame::Attack()
 {
 	bool ret = false;
 	if (entity->pos.y <= Final_Position.y) {
@@ -50,7 +51,7 @@ bool Up::Movement()
 	return ret;
 }
 
-bool Down::Movement()
+bool Charge_Ki::Attack()
 {
 	bool ret = false;
 	if (entity->pos.y >= Final_Position.y) {
@@ -74,7 +75,12 @@ bool j1TaskQueue::Update(float dt)
 		if (Task_temp == nullptr && TaskQueue.size() != 0)
 		{
 			//TODO 4: Assign the first element of the queue to the auxiliar_task, call InitTask function for auxiliar_task and make a pop of the queue.
-			
+			if (Task_temp == nullptr && TaskQueue.size() != 0) 
+			{
+				Task_temp = TaskQueue.front();
+				Task_temp->StartTask();
+				TaskQueue.pop();
+			}
 		}
 	}
 
@@ -86,6 +92,10 @@ bool j1TaskQueue::Update(float dt)
 bool j1TaskQueue::CleanUp()
 {
 	//TODO 3: Pop queue tasks
+	while (TaskQueue.size() != 0)
+	{
+		TaskQueue.pop();
+	}
 	
 	return true;
 }
@@ -93,6 +103,7 @@ bool j1TaskQueue::CleanUp()
 bool j1TaskQueue::EnqueueTask(Task* task)
 {
 	//TODO 1: Add a task to the Queue
+	TaskQueue.push(task);
 	
 
 	return true;
@@ -109,7 +120,9 @@ bool j1TaskQueue::DoTasks()
 			if (TaskQueue.size() != 0)
 			{
 				//TODO 2: Assign the first element of the queue to the auxiliar_task, call InitTask function for auxiliar_task and make a pop of the queue.
-				
+				Task_temp = TaskQueue.front();
+				Task_temp->StartTask();
+				TaskQueue.pop();
 				
 				
 			}

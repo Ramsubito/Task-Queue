@@ -15,7 +15,7 @@ public:
 	~Task() {};
 	Entity* entity;
 	virtual bool Action() { return true; };
-	virtual void InitTask() {};
+	virtual void StartTask() {};
 };
 
 class j1TaskQueue: public j1Module
@@ -41,47 +41,47 @@ public:
 
 //moving to diferent directions as different tasks.
 
-class Left : public Task
+class Punch : public Task
 {
 public:
-	Left(Entity* entity) : Task(entity) {};
-	~Left() {};
+	Punch(Entity* entity) : Task(entity) {};
+	~Punch() {};
 
-	bool Movement();
+	bool Attack();
 	iPoint Final_Position;
 	void StartTask() { Final_Position.x = entity->pos.x - entity->rect.w; };
 };
 
 
-class Right : public Task
+class Kick : public Task
 {
 public:
-	Right(Entity* entity) : Task(entity) {};
-	~Right() {};
+	Kick(Entity* entity) : Task(entity) {};
+	~Kick() {};
 
-	bool Movement();
+	bool Attack();
 	iPoint Final_Position;
 	void StartTask() { Final_Position.x = entity->pos.x + entity->rect.w; };
 };
 
-class Up : public Task
+class Kame : public Task
 {
 public:
-	Up(Entity* entity) : Task(entity) {};
-	~Up() {};
+	Kame(Entity* entity) : Task(entity) {};
+	~Kame() {};
 
-	bool Movement();
+	bool Attack();
 	iPoint Final_Position;
 	void StartTask() { Final_Position.y = entity->pos.y - entity->rect.h; };
 };
 
-class Down : public Task
+class Charge_Ki : public Task
 {
 public:
-	Down(Entity* entity) : Task(entity) { };
-	~Down() {};
+	Charge_Ki(Entity* entity) : Task(entity) { };
+	~Charge_Ki() {};
 
-	bool Movement();
+	bool Attack();
 	iPoint Final_Position;
 	void StartTask() {Final_Position.y = entity->pos.y + entity->rect.h;};
 };
