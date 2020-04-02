@@ -4,7 +4,7 @@
 #include "j1TaskQueue.h"
 
 
-
+//Movement methods already done
 bool MoveLeft::Action()
 {
 	bool ret = false;

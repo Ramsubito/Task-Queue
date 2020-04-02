@@ -49,7 +49,7 @@ public:
 
 	bool Action();
 	iPoint finalpos;
-	void InitTask() { finalpos.x = entity->pos.x - entity->rect.w; };
+	void InitTask() { finalpos.x = entity->pos.x - 100; };
 };
 
 
@@ -61,7 +61,7 @@ public:
 
 	bool Action();
 	iPoint finalpos;
-	void InitTask() { finalpos.x = entity->pos.x + entity->rect.w; };
+	void InitTask() { finalpos.x = entity->pos.x + 100; };
 };
 
 class MoveUp : public Task
@@ -72,7 +72,7 @@ public:
 
 	bool Action();
 	iPoint finalpos;
-	void InitTask() { finalpos.y = entity->pos.y - entity->rect.h; };
+	void InitTask() { finalpos.y = entity->pos.y - 100; };
 };
 
 class MoveDown : public Task
@@ -83,7 +83,7 @@ public:
 
 	bool Action();
 	iPoint finalpos;
-	void InitTask() { finalpos.y = entity->pos.y + entity->rect.h; };
+	void InitTask() { finalpos.y = entity->pos.y +100; };
 };
 #endif // !_TASKMANAGER_H__
 

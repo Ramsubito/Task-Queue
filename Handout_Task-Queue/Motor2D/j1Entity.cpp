@@ -21,7 +21,7 @@ bool j1Entity::Awake()
 
 bool j1Entity::Start()
 {
-	sprite = App->tex->Load("textures/rsz_test.png");
+	test = App->tex->Load("textures/rsz_test.png");
 
 	return true;
 }
@@ -41,7 +41,7 @@ bool j1Entity::Update(float dt)
 		if ((*iterator)->type == PLAYER)
 		{
 
-			App->render->Blit(sprite, (*iterator)->pos.x, (*iterator)->pos.y);
+			App->render->Blit(test, (*iterator)->pos.x, (*iterator)->pos.y);
 		}
 
 		(*iterator)->Move(dt);
@@ -63,7 +63,7 @@ bool j1Entity::CleanUp()
 }
 
 
-Entity* j1Entity::AddEntity(int pos_x, int pos_y, ENTITY_TYPES type)
+Entity* j1Entity::AddEntity(int pos_x, int pos_y, entity_type type)
 {
 	Entity* ent = nullptr;
 

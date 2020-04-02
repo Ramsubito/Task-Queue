@@ -15,7 +15,7 @@
 
 class SDL_Texture;
 
-enum ENTITY_TYPES
+enum entity_type
 {
 	NO_TYPE,
 	PLAYER,
@@ -25,13 +25,15 @@ enum ENTITY_TYPES
 class Entity {
 public:
 
-	Entity(int x, int y, ENTITY_TYPES type) {}
+	Entity(int x, int y, entity_type type) {}
+	
 	virtual void Move(float dt) {};
 
 public:
+	
 	iPoint pos;
 	iPoint speed;
-	ENTITY_TYPES type;
+	entity_type type;
 	SDL_Rect rect;
 
 
@@ -54,9 +56,9 @@ public:
 	bool CleanUp();
 
 
-	Entity* AddEntity(int x, int y, ENTITY_TYPES type);
+	Entity* AddEntity(int x, int y, entity_type type);
 
-	SDL_Texture* sprite;
+	SDL_Texture* test;
 };
 
 

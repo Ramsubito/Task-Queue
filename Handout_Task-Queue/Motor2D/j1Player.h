@@ -11,7 +11,7 @@
 class j1Player : public Entity
 {
 public:
-	j1Player(int x, int y, ENTITY_TYPES type);
+	j1Player(int x, int y, entity_type type);
 	virtual ~j1Player();
 
 	bool Awake();

@@ -34,8 +34,6 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
-public:
-	iPoint destination;
 };
 
 #endif // __j1SCENE_H__

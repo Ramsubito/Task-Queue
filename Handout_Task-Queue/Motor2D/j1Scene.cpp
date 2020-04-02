@@ -25,6 +25,7 @@ j1Scene::~j1Scene()
 bool j1Scene::Awake()
 {
 	LOG("Loading Scene");
+	
 	bool ret = true;
 
 	return ret;
@@ -36,26 +37,22 @@ bool j1Scene::Start()
 	if(App->map->Load("iso.tmx") == true)
 	{
 		int w, h;
+
 		uchar* data = NULL;
+
 		if(App->map->CreateWalkabilityMap(w, h, &data))
 
 		RELEASE_ARRAY(data);
 	}
 
 	App->win->SetTitle("Task Queue-Personal Research");
-
 	App->entities->AddEntity(-80,350,PLAYER);
-	
-
-
 	return true;
 }
 
 // Called each loop iteration
 bool j1Scene::PreUpdate()
 {
-
-	
 	return true;
 }
 
