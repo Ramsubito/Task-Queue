@@ -47,9 +47,9 @@ public:
 	Left(Entity* entity) : Task(entity) {};
 	~Left() {};
 
-	bool Action();
+	bool Movement();
 	iPoint Final_Position;
-	void InitTask() { Final_Position.x = entity->pos.x - entity->rect.w; };
+	void StartTask() { Final_Position.x = entity->pos.x - entity->rect.w; };
 };
 
 
@@ -59,9 +59,9 @@ public:
 	Right(Entity* entity) : Task(entity) {};
 	~Right() {};
 
-	bool Action();
+	bool Movement();
 	iPoint Final_Position;
-	void InitTask() { Final_Position.x = entity->pos.x + entity->rect.w; };
+	void StartTask() { Final_Position.x = entity->pos.x + entity->rect.w; };
 };
 
 class Up : public Task
@@ -70,9 +70,9 @@ public:
 	Up(Entity* entity) : Task(entity) {};
 	~Up() {};
 
-	bool Action();
+	bool Movement();
 	iPoint Final_Position;
-	void InitTask() { Final_Position.y = entity->pos.y - entity->rect.h; };
+	void StartTask() { Final_Position.y = entity->pos.y - entity->rect.h; };
 };
 
 class Down : public Task
@@ -81,9 +81,9 @@ public:
 	Down(Entity* entity) : Task(entity) { };
 	~Down() {};
 
-	bool Action();
+	bool Movement();
 	iPoint Final_Position;
-	void InitTask() {Final_Position.y = entity->pos.y + entity->rect.h;};
+	void StartTask() {Final_Position.y = entity->pos.y + entity->rect.h;};
 };
 #endif // !_TASKMANAGER_H__
 

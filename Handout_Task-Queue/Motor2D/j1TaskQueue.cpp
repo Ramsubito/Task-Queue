@@ -5,7 +5,7 @@
 
 
 
-bool Left::Action()
+bool Left::Movement()
 {
 	bool ret = false;
 	if (entity->pos.x <= Final_Position.x) {
@@ -19,7 +19,7 @@ bool Left::Action()
 	return ret;
 }
 
-bool Right::Action()
+bool Right::Movement()
 {
 	bool ret = false;
 	if (entity->pos.x >= Final_Position.x) {
@@ -35,7 +35,7 @@ bool Right::Action()
 	return ret;
 }
 
-bool Up::Action()
+bool Up::Movement()
 {
 	bool ret = false;
 	if (entity->pos.y <= Final_Position.y) {
@@ -50,7 +50,7 @@ bool Up::Action()
 	return ret;
 }
 
-bool Down::Action()
+bool Down::Movement()
 {
 	bool ret = false;
 	if (entity->pos.y >= Final_Position.y) {

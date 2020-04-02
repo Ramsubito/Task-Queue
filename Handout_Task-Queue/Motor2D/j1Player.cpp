@@ -38,7 +38,7 @@ bool j1Player::PreUpdate()
 
 void j1Player::Move(float dt)
 {
-	//TODO 5: Add a new movement task to the queue for each key pressed for the four directions(W, A, S, D or Arrows).
+	//TODO 5: Add a new movement task to the queue for each key pressed for the four directions.(With W,A,S,D)
 	//Movement methods already added.As Up, Down, Left, Right. Check j1TaskQueue.h.
 	
 
