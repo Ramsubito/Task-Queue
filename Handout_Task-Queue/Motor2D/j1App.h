@@ -4,6 +4,7 @@
 #include "p2List.h"
 #include "j1Module.h"
 #include "PugiXml\src\pugixml.hpp"
+#include "j1Animation.h"
 
 // Modules
 class j1Window;
@@ -85,12 +86,13 @@ public:
 	j1Map*				map;
 	j1TaskQueue*		task;
 	j1Entity*			entities;
+	
+	float dt;
 
 private:
 
 	p2List<j1Module*>	modules;
 	uint				frames;
-	float				dt;
 	int					argc;
 	char**				args;
 
@@ -101,6 +103,8 @@ private:
 	bool				want_to_load;
 	p2SString			load_game;
 	mutable p2SString	save_game;
+
+	
 };
 
 extern j1App* App; // No student is asking me about that ... odd :-S

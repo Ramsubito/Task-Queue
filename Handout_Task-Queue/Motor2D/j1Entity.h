@@ -55,6 +55,14 @@ public:
 	Entity* AddEntity(int x, int y, ENTITY_TYPES type);
 	
 	SDL_Texture* sprite;
+	SDL_Texture* goku_sprite;
+
+	Animation* Current_Animation;
+	Animation idle;
+	Animation punch;
+	Animation kame;
+	Animation charge_ki;
+	Animation kick;
 };
 
 

@@ -36,7 +36,7 @@ private:
 	std::queue<Task*> TaskQueue;
 	
 public:
-	Task* auxiliar_task = nullptr;
+	Task* Task_temp = nullptr;
 };
 
 //moving to diferent directions as different tasks.

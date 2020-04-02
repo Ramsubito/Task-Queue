@@ -23,7 +23,7 @@ public:
 	void Move(float dt);
 
 	bool CleanUp();
-	
+
 	
 };
 

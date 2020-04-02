@@ -7,6 +7,10 @@
 #include "j1Entity.h"
 #include "j1TaskQueue.h"
 
+#include"SDL_image/include/SDL_image.h"
+
+
+
 j1Player::j1Player(int x, int y, ENTITY_TYPES type) : Entity(x, y, type)
 {
 

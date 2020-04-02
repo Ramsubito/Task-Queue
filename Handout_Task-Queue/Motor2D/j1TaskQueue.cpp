@@ -30,7 +30,7 @@ bool Right::Movement()
 		entity->pos.x += entity->speed.x;
 	}
 
-	
+
 	
 	return ret;
 }
@@ -71,7 +71,7 @@ bool j1TaskQueue::Update(float dt)
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 	{
 		
-		if (auxiliar_task == nullptr && TaskQueue.size() != 0)
+		if (Task_temp == nullptr && TaskQueue.size() != 0)
 		{
 			//TODO 4: Assign the first element of the queue to the auxiliar_task, call InitTask function for auxiliar_task and make a pop of the queue.
 			
@@ -92,7 +92,7 @@ bool j1TaskQueue::CleanUp()
 
 bool j1TaskQueue::EnqueueTask(Task* task)
 {
-	//TODO 1: Add task to Queue
+	//TODO 1: Add a task to the Queue
 	
 
 	return true;
@@ -101,10 +101,10 @@ bool j1TaskQueue::EnqueueTask(Task* task)
 bool j1TaskQueue::DoTasks()
 {
 	
-	if (auxiliar_task != nullptr)
+	if (Task_temp != nullptr)
 	{
 		
-		if (auxiliar_task->Action())
+		if (Task_temp->Action())
 		{
 			if (TaskQueue.size() != 0)
 			{
@@ -114,7 +114,7 @@ bool j1TaskQueue::DoTasks()
 				
 			}
 			else 
-				auxiliar_task = nullptr;
+				Task_temp = nullptr;
 
 		}
 	}

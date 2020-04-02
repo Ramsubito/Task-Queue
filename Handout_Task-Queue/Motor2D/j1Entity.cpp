@@ -7,6 +7,21 @@
 j1Entity::j1Entity() : j1Module()
 {
 	name.create("entity");
+	idle.PushBack({433, 470 , 39 , 86});
+	/*
+
+	punch.PushBack({});
+	punch.speed = ;
+
+	kick.PushBack({});
+	kick.speed = ;
+
+	charge_ki.PushBack({});
+	charge_ki.speed = ;
+
+	kame.PushBack({});
+	kame.speed = ;*/
+
 }
 
 j1Entity::~j1Entity()
@@ -22,8 +37,9 @@ bool j1Entity::Awake()
 bool j1Entity::Start()
 {
 	//Load sprite
-	sprite = App->tex->Load("textures/rsz_test.png");
-	
+	//sprite = App->tex->Load("textures/rsz_test.png");
+	goku_sprite = App->tex->Load("textures/GokuSpritesheet.png");
+	Current_Animation = &idle;
 	return true;
 }
 
@@ -42,7 +58,8 @@ bool j1Entity::Update(float dt)
 		if((*iterator)->type == PLAYER)
 		{ 
 			
-			App->render->Blit(sprite, (*iterator)->pos.x, (*iterator)->pos.y);
+			//App->render->Blit(goku_sprite, (*iterator)->pos.x, (*iterator)->pos.y);
+			App->render->Blit(goku_sprite, (*iterator)->pos.x, (*iterator)->pos.y, &Current_Animation->GetCurrentFrame(), 1.0f, NULL, NULL, NULL);
 		}
 
 		(*iterator)->Walk(dt);
