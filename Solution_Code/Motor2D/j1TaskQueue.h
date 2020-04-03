@@ -44,7 +44,9 @@ public:
 
 public:
 	iPoint Final_Position;
-	virtual void InitTask() {Final_Position.x = entity->pos.x + 100;};
+	virtual void InitTask() {
+		Final_Position.x = entity->pos.x + 100;
+	};
 	bool Action();
 	
 };
@@ -57,7 +59,9 @@ public:
 
 public:
 	iPoint Final_Position;
-	virtual void InitTask() { Final_Position.x = entity->pos.x - 100; };
+	virtual void InitTask() {
+		Final_Position.x = entity->pos.x - 100; 
+	};
 	bool Action();
 
 };
@@ -69,7 +73,9 @@ public:
 
 public:
 	iPoint Final_Position;
-	virtual void InitTask() { Final_Position.y = entity->pos.y - 100; };
+	virtual void InitTask() { 
+		Final_Position.y = entity->pos.y - 100; 
+	};
 	bool Action();
 
 };
@@ -82,7 +88,9 @@ public:
 
 public:
 	iPoint Final_Position;
-	virtual void InitTask() { Final_Position.y = entity->pos.y +100; };
+	virtual void InitTask() { 
+		Final_Position.y = entity->pos.y +100; 
+	};
 	bool Action();
 	
 };
