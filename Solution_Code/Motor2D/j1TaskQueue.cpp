@@ -15,7 +15,9 @@ bool j1TaskQueue::Update(float dt)
 		if (Temp_Task == nullptr && TaskQueue.size() != 0)
 		{
 			//TODO 4: Assign the first element of the queue to the auxiliar_task, call InitTask function for auxiliar_task and make a pop of the queue.
-			
+			Temp_Task = TaskQueue.front();
+			Temp_Task->InitTask();
+			TaskQueue.pop();
 		}
 	}
 
@@ -26,16 +28,19 @@ bool j1TaskQueue::Update(float dt)
 
 bool j1TaskQueue::CleanUp()
 {
-	
-		//TODO 3: Pop queue tasks if task queue if the queue still has tasks
-	
+	while (TaskQueue.size() != 0)
+	{
+		//TODO 3: Pop queue tasks
+		TaskQueue.pop();
+
+	}
 	return true;
 }
 
 bool j1TaskQueue::Enqueue(Task* task)
 {
 	//TODO 1 Add task to the queue
-	
+	TaskQueue.push(task);
 
 	return true;
 }
@@ -50,7 +55,9 @@ bool j1TaskQueue::Do_Tasks()
 			if (TaskQueue.size() != 0)
 			{
 				//TODO 2: Assign the first element of the queue to the auxiliar_task, call InitTask function for auxiliar_task and make a pop of the queue.
-				
+				Temp_Task = TaskQueue.front();
+				Temp_Task->InitTask();
+				TaskQueue.pop();
 
 
 			}
