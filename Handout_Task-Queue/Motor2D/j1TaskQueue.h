@@ -23,67 +23,68 @@ class j1TaskQueue : public j1Module
 public:
 	j1TaskQueue() {};
 	virtual ~j1TaskQueue() {};
-
-
 	bool Update(float dt);
 	bool CleanUp();
 
 	bool Enqueue(Task* task);
 	bool Do_Tasks();
+public:
+	Task* Temp_Task = nullptr;
 
 private:
-
 	std::queue<Task*> TaskQueue;
-
-public:
-	Task* auxiliar_task = nullptr;
 };
 
-
-
-class MoveLeft : public Task
+//Movement methods already added 
+class Go_Right : public Task
 {
 public:
-	MoveLeft(Entity* entity) : Task(entity) {};
-	~MoveLeft() {};
+	Go_Right(Entity* entity) : Task(entity) {};
+	~Go_Right() {};
 
+public:
+	iPoint Final_Position;
+	virtual void InitTask() {Final_Position.x = entity->pos.x + 100;};
 	bool Action();
-	iPoint finalpos;
-	void InitTask() { finalpos.x = entity->pos.x - 100; };
+	
 };
 
-
-class MoveRight : public Task
+class Go_Left : public Task
 {
 public:
-	MoveRight(Entity* entity) : Task(entity) {};
-	~MoveRight() {};
+	Go_Left(Entity* entity) : Task(entity) {};
+	~Go_Left() {};
 
+public:
+	iPoint Final_Position;
+	virtual void InitTask() { Final_Position.x = entity->pos.x - 100; };
 	bool Action();
-	iPoint finalpos;
-	void InitTask() { finalpos.x = entity->pos.x + 100; };
+
+};
+class Go_Up : public Task
+{
+public:
+	Go_Up(Entity* entity) : Task(entity) {};
+	~Go_Up() {};
+
+public:
+	iPoint Final_Position;
+	virtual void InitTask() { Final_Position.y = entity->pos.y - 100; };
+	bool Action();
+
 };
 
-class MoveUp : public Task
+class Go_Down : public Task
 {
 public:
-	MoveUp(Entity* entity) : Task(entity) {};
-	~MoveUp() {};
+	Go_Down(Entity* entity) : Task(entity) { };
+	~Go_Down() {};
 
-	bool Action();
-	iPoint finalpos;
-	void InitTask() { finalpos.y = entity->pos.y - 100; };
-};
-
-class MoveDown : public Task
-{
 public:
-	MoveDown(Entity* entity) : Task(entity) { };
-	~MoveDown() {};
-
+	iPoint Final_Position;
+	virtual void InitTask() { Final_Position.y = entity->pos.y +100; };
 	bool Action();
-	iPoint finalpos;
-	void InitTask() { finalpos.y = entity->pos.y +100; };
+	
 };
 #endif // !_TASKMANAGER_H__
 
