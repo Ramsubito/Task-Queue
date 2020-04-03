@@ -32,7 +32,7 @@ bool j1Player::PreUpdate()
 
 void j1Player::Move(float dt)
 {
-	//TODO 5: Asign keys to the task(W,S,A,D). Movement methods already done, checj j1TaskQueue.h.
+	//TODO 5: Asign keys to the task(W,S,A,D). Movement methods already done, check j1TaskQueue.h.
 	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN)
 	{
 
