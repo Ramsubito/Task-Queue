@@ -73,7 +73,7 @@ bool j1TaskQueue::Update(float dt)
 		}
 	}
 
-	ret = ExecuteTasks();
+	ret = Do_Tasks();
 
 	return ret;
 }
@@ -89,7 +89,7 @@ bool j1TaskQueue::CleanUp()
 	return true;
 }
 
-bool j1TaskQueue::AddTasktoQueue(Task* task)
+bool j1TaskQueue::Enqueue(Task* task)
 {
 	//TODO 1 Add task to the queue
 	TaskQueue.push(task);
@@ -97,7 +97,7 @@ bool j1TaskQueue::AddTasktoQueue(Task* task)
 	return true;
 }
 
-bool j1TaskQueue::ExecuteTasks()
+bool j1TaskQueue::Do_Tasks()
 {
 	if (auxiliar_task != nullptr)
 	{

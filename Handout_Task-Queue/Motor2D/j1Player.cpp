@@ -36,24 +36,24 @@ void j1Player::Move(float dt)
 	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN)
 	{
 
-		App->task->AddTasktoQueue(new MoveUp(this));
+		App->task->Enqueue(new MoveUp(this));
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_DOWN)
 	{
-		App->task->AddTasktoQueue(new MoveLeft(this));
+		App->task->Enqueue(new MoveLeft(this));
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_DOWN)
 	{
 
-		App->task->AddTasktoQueue(new MoveDown(this));
+		App->task->Enqueue(new MoveDown(this));
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN)
 	{
 
-		App->task->AddTasktoQueue(new MoveRight(this));
+		App->task->Enqueue(new MoveRight(this));
 
 	}
 

@@ -28,8 +28,8 @@ public:
 	bool Update(float dt);
 	bool CleanUp();
 
-	bool AddTasktoQueue(Task* task);
-	bool ExecuteTasks();
+	bool Enqueue(Task* task);
+	bool Do_Tasks();
 
 private:
 
